@@ -1,77 +1,59 @@
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "Segoe UI", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f3f5f7;
+  background: #f5f7fa;
   color: #333;
 }
 
 header {
-  background: linear-gradient(135deg, #4a90e2, #007acc);
+  background: linear-gradient(to right, #4facfe, #00f2fe);
   color: white;
   text-align: center;
-  padding: 50px 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  padding: 2rem 1rem;
 }
 
-.subtitle {
-  font-size: 1.2em;
-  opacity: 0.9;
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+main {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
 }
 
 section {
+  margin-bottom: 40px;
   background: white;
-  max-width: 900px;
-  margin: 25px auto;
-  padding: 25px;
+  padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-  color: #007acc;
-  margin-bottom: 15px;
+  color: #0078d7;
+  margin-bottom: 10px;
 }
 
-p {
-  line-height: 1.6;
-}
-
-.grid {
+.member-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 10px;
 }
 
-.member {
-  background: #e9f3ff;
-  padding: 10px;
-  border-radius: 10px;
+.member-list p {
+  background: #e7f3ff;
+  padding: 8px;
+  border-radius: 8px;
   text-align: center;
-  font-weight: 500;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-  transition: 0.2s;
-}
-
-.member:hover {
-  background: #d8eaff;
-  transform: scale(1.05);
-}
-
-a {
-  color: #007acc;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }
 
 footer {
-  background: #007acc;
-  color: white;
   text-align: center;
   padding: 15px;
-  margin-top: 30px;
-  font-size: 0.9em;
+  background: #222;
+  color: #ccc;
+  font-size: 14px;
 }
