@@ -3,6 +3,7 @@ body {
     font-family: 'Roboto', sans-serif;
     display: flex;
     min-height: 100vh;
+    scroll-behavior: smooth;
 }
 
 .sidebar {
@@ -37,10 +38,18 @@ body {
     color: #ecf0f1;
     text-decoration: none;
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .sidebar ul li a:hover {
     text-decoration: underline;
+}
+
+.icon-small {
+    width: 20px;
+    height: 20px;
 }
 
 .content {
@@ -60,6 +69,7 @@ header {
     color: white;
     padding: 20px;
     border-radius: 10px;
+    position: relative;
 }
 
 .header-icon {
@@ -68,7 +78,7 @@ header {
 }
 
 .accordion {
-    background-color: #3498db;
+    background: linear-gradient(90deg, #3498db, #2980b9);
     color: white;
     cursor: pointer;
     padding: 12px;
@@ -76,17 +86,25 @@ header {
     border: none;
     text-align: left;
     outline: none;
-    transition: 0.3s;
+    transition: 0.4s;
     margin-top: 10px;
     border-radius: 5px;
+    position: relative;
 }
 
 .accordion:hover {
-    background-color: #2980b9;
+    background: linear-gradient(90deg, #2980b9, #1abc9c);
+    transform: scale(1.03);
 }
 
-.active, .accordion:active {
-    background-color: #2980b9;
+.accordion::after {
+    content: '▼';
+    float: right;
+    transition: 0.3s;
+}
+
+.accordion.active::after {
+    transform: rotate(180deg);
 }
 
 .panel {
