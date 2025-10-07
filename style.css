@@ -2,8 +2,9 @@ body {
   font-family: "Segoe UI", sans-serif;
   margin: 0;
   padding: 0;
-  background: #f5f7fa;
+  background: #f0f4f8;
   color: #333;
+  line-height: 1.6;
 }
 
 header {
@@ -37,17 +38,10 @@ h2 {
   margin-bottom: 10px;
 }
 
-.member-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
-}
-
-.member-list p {
-  background: #e7f3ff;
-  padding: 8px;
-  border-radius: 8px;
-  text-align: center;
+.subject {
+  border-left: 5px solid #4facfe;
+  padding-left: 15px;
+  margin-bottom: 20px;
 }
 
 footer {
