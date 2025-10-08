@@ -1,9 +1,8 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #f4f7fb;
+  background: #f5f8ff;
   color: #333;
-  scroll-behavior: smooth;
 }
 
 header {
@@ -12,24 +11,22 @@ header {
   text-align: center;
   padding: 20px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 15px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  align-items: center;
+  gap: 10px;
 }
 
 .logo {
   width: 60px;
-  height: 60px;
 }
 
 .navbar {
+  background: #1e3799;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  background: #1e3799;
   padding: 10px;
-  flex-wrap: wrap;
 }
 
 .navbar a {
@@ -38,21 +35,19 @@ header {
   font-weight: 500;
   transition: 0.3s;
 }
-
 .navbar a:hover {
-  text-decoration: underline;
   color: #ffeaa7;
 }
 
 main {
   max-width: 900px;
-  margin: 30px auto;
+  margin: 20px auto;
   padding: 0 20px;
 }
 
 section {
   background: white;
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   padding: 20px;
   margin-bottom: 30px;
@@ -60,56 +55,52 @@ section {
 
 h2 {
   color: #2e86de;
-  margin-bottom: 10px;
-}
-
-h3 {
-  color: #1e3799;
-}
-
-ul {
-  line-height: 1.8;
-}
-
-form {
-  margin-top: 10px;
-}
-
-textarea {
-  width: 100%;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  font-family: inherit;
 }
 
 button {
-  margin-top: 10px;
   background: #2e86de;
   color: white;
   border: none;
-  padding: 10px 15px;
   border-radius: 5px;
+  padding: 8px 14px;
   cursor: pointer;
   transition: 0.3s;
 }
-
 button:hover {
   background: #1e3799;
 }
 
-blockquote {
-  font-style: italic;
-  color: #555;
-  border-left: 4px solid #2e86de;
-  padding-left: 15px;
+textarea, input {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 5px;
+  font-family: inherit;
 }
 
+.chatbox {
+  border: 2px solid #2e86de;
+  border-radius: 10px;
+  padding: 15px;
+  background: #f0f5ff;
+}
+#chatlog {
+  height: 220px;
+  overflow-y: auto;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.msg {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
 footer {
   text-align: center;
   background: #1e3799;
   color: white;
   padding: 15px;
-  margin-top: 40px;
   font-size: 14px;
 }
