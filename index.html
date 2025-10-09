@@ -75,7 +75,7 @@
 
     <div class="chatbox">
       <div id="chatlog">
-        <div class="msg bot">🤖 Tư vấn viên: Chào bạn! Mình có thể giúp gì cho bạn hôm nay?</div>
+        <div class="msg bot"><span class="bubble">🤖 Chào bạn! Mình có thể giúp gì cho bạn hôm nay?</span></div>
       </div>
       <div class="chat-input">
         <input type="text" id="userInput" placeholder="Nhập tin nhắn của bạn...">
@@ -105,43 +105,46 @@ form.addEventListener('submit', e => {
   form.reset();
 });
 
-// Chat Messenger-like
+// --- Chat Messenger Style ---
 const chatlog = document.getElementById('chatlog');
 const input = document.getElementById('userInput');
 const btn = document.getElementById('sendBtn');
 
 btn.addEventListener('click', sendMessage);
 input.addEventListener('keypress', e => {
-  if (e.key === 'Enter') sendMessage();
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    sendMessage();
+  }
 });
 
 function sendMessage() {
   const text = input.value.trim();
   if (!text) return;
-  appendMessage("🧑‍🎓", text, "user");
+  appendMessage(text, "user");
   input.value = '';
 
   setTimeout(() => {
     const reply = aiReply(text);
-    appendMessage("🤖", reply, "bot");
+    appendMessage(reply, "bot");
   }, 700);
 }
 
-function appendMessage(icon, msg, type) {
+function appendMessage(msg, type) {
   const div = document.createElement('div');
   div.classList.add('msg', type);
-  div.innerHTML = `<span class="icon">${icon}</span><span class="bubble">${msg}</span>`;
+  div.innerHTML = `<span class="bubble">${msg}</span>`;
   chatlog.appendChild(div);
   chatlog.scrollTop = chatlog.scrollHeight;
 }
 
 function aiReply(text) {
   text = text.toLowerCase();
-  if (text.includes('buồn')) return "Mình hiểu cảm giác đó 😔. Bạn không cô đơn đâu nhé ❤️";
-  if (text.includes('mệt')) return "Bạn nên nghỉ ngơi và hít thở sâu nhé 🌿";
-  if (text.includes('bị bắt nạt')) return "Điều đó thật tệ 😢. Hãy báo với thầy cô hoặc người bạn tin tưởng nhé!";
-  if (text.includes('cô đơn')) return "Đôi khi ai cũng vậy. Hãy nói chuyện cùng bạn bè hoặc mình nhé 🤗";
-  return "Cảm ơn vì đã chia sẻ 💬. Mình luôn ở đây để lắng nghe bạn!";
+  if (text.includes('buồn')) return "😔 Mình hiểu cảm giác đó. Bạn không cô đơn đâu nhé ❤️";
+  if (text.includes('mệt')) return "🌿 Hãy nghỉ ngơi một chút và hít thở sâu nhé!";
+  if (text.includes('bị bắt nạt')) return "😢 Điều đó không ổn. Hãy nói với thầy cô hoặc người bạn tin tưởng nhé!";
+  if (text.includes('cô đơn')) return "🤗 Mình ở đây để lắng nghe bạn. Cứ thoải mái nói ra nhé!";
+  return "💬 Cảm ơn bạn đã chia sẻ. Mình luôn ở đây để lắng nghe bạn!";
 }
 </script>
 
