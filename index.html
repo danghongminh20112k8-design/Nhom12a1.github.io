@@ -31,7 +31,6 @@
       <li>Ảnh hưởng từ mạng xã hội, trò chơi bạo lực.</li>
       <li>Thiếu kỹ năng kiểm soát cảm xúc, giao tiếp ứng xử kém.</li>
       <li>Gia đình thiếu quan tâm, áp lực từ bạn bè hoặc môi trường sống.</li>
-      <li>Như Ý yêu Tấn Phát</li>
     </ul>
   </section>
 
@@ -71,12 +70,17 @@
 
   <section id="tuvan">
     <h2>5️⃣ Tư vấn tâm lý</h2>
-    <p>Bạn đang cảm thấy căng thẳng, buồn, hay cần chia sẻ điều gì đó? Hãy trò chuyện với AI tư vấn tâm lý — người bạn biết lắng nghe và luôn tôn trọng bạn 💬</p>
+    <p>Bạn đang cảm thấy căng thẳng, buồn, hay cần chia sẻ điều gì đó?  
+       Hãy trò chuyện với AI tư vấn tâm lý — người bạn biết lắng nghe và luôn tôn trọng bạn 💬</p>
 
     <div class="chatbox">
-      <div id="chatlog"></div>
-      <input type="text" id="userInput" placeholder="Nhập lời bạn muốn nói...">
-      <button id="sendBtn">Gửi</button>
+      <div id="chatlog">
+        <div class="msg bot">🤖 Tư vấn viên: Chào bạn! Mình có thể giúp gì cho bạn hôm nay?</div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Nhập tin nhắn của bạn...">
+        <button id="sendBtn">Gửi</button>
+      </div>
     </div>
   </section>
 
@@ -101,84 +105,45 @@ form.addEventListener('submit', e => {
   form.reset();
 });
 
-// Chat AI giả lập (offline)
+// Chat Messenger-like
 const chatlog = document.getElementById('chatlog');
 const input = document.getElementById('userInput');
 const btn = document.getElementById('sendBtn');
 
-btn.addEventListener('click', () => {
+btn.addEventListener('click', sendMessage);
+input.addEventListener('keypress', e => {
+  if (e.key === 'Enter') sendMessage();
+});
+
+function sendMessage() {
   const text = input.value.trim();
   if (!text) return;
-  appendMessage("🧑‍🎓 Bạn", text);
+  appendMessage("🧑‍🎓", text, "user");
   input.value = '';
 
   setTimeout(() => {
     const reply = aiReply(text);
-    appendMessage("🤖 Tư vấn AI", reply);
-  }, 600);
-});
+    appendMessage("🤖", reply, "bot");
+  }, 700);
+}
 
-function appendMessage(sender, msg) {
+function appendMessage(icon, msg, type) {
   const div = document.createElement('div');
-  div.classList.add('msg');
-  div.innerHTML = `<strong>${sender}:</strong> ${msg}`;
+  div.classList.add('msg', type);
+  div.innerHTML = `<span class="icon">${icon}</span><span class="bubble">${msg}</span>`;
   chatlog.appendChild(div);
   chatlog.scrollTop = chatlog.scrollHeight;
 }
 
-function aiReply(input) {
-  const text = input.toLowerCase();
-  if (text.includes('buồn') || text.includes('mệt')) return "Mình hiểu cảm giác đó 😔. Hãy thử chia sẻ với bạn bè hoặc thầy cô, bạn không đơn độc đâu nhé ❤️";
-  if (text.includes('cô đơn')) return "Đôi khi ai cũng cảm thấy cô đơn. Hãy mở lòng nói chuyện với ai đó – hoặc đơn giản là nghe nhạc bạn thích 🎵";
-  if (text.includes('bị bắt nạt')) return "Điều đó không ổn 😢. Hãy báo với giáo viên hoặc người đáng tin cậy. Không ai đáng bị đối xử tệ cả!";
-  return "Cảm ơn vì đã chia sẻ 💬. Mình luôn ở đây để lắng nghe bạn, cứ nói tiếp nhé.";
+function aiReply(text) {
+  text = text.toLowerCase();
+  if (text.includes('buồn')) return "Mình hiểu cảm giác đó 😔. Bạn không cô đơn đâu nhé ❤️";
+  if (text.includes('mệt')) return "Bạn nên nghỉ ngơi và hít thở sâu nhé 🌿";
+  if (text.includes('bị bắt nạt')) return "Điều đó thật tệ 😢. Hãy báo với thầy cô hoặc người bạn tin tưởng nhé!";
+  if (text.includes('cô đơn')) return "Đôi khi ai cũng vậy. Hãy nói chuyện cùng bạn bè hoặc mình nhé 🤗";
+  return "Cảm ơn vì đã chia sẻ 💬. Mình luôn ở đây để lắng nghe bạn!";
 }
-
- <section id="counseling">
-  <h2>5. Tư vấn học đường</h2>
-  <p>Nếu bạn đang gặp khó khăn trong học tập, áp lực tâm lý hoặc các vấn đề cá nhân, 
-     bạn có thể gửi tin nhắn dưới đây để được tư vấn viên ảo lắng nghe và chia sẻ cùng bạn 💬</p>
-
-  <div class="chatbox">
-    <div id="chatlog">
-      <div class="msg"><strong>Tư vấn viên:</strong> Chào bạn! Mình có thể giúp gì cho bạn hôm nay?</div>
-    </div>
-    <input type="text" id="userInput" placeholder="Nhập tin nhắn của bạn...">
-    <button onclick="sendMessage()">Gửi</button>
-  </div>
-</section>
-
-<script>
-function sendMessage() {
-  const input = document.getElementById("userInput");
-  const chatlog = document.getElementById("chatlog");
-
-  if (input.value.trim() === "") return;
-
-  // Hiển thị tin nhắn của người dùng
-  const userMsg = document.createElement("div");
-  userMsg.className = "msg";
-  userMsg.innerHTML = "<strong>Bạn:</strong> " + input.value;
-  chatlog.appendChild(userMsg);
-
-  // Tự động phản hồi
-  const reply = document.createElement("div");
-  reply.className = "msg";
-  reply.innerHTML = "<strong>Tư vấn viên:</strong> Cảm ơn bạn đã chia sẻ 💙. Hãy luôn nhớ rằng bạn không đơn độc nhé!";
-  chatlog.appendChild(reply);
-
-  input.value = "";
-  chatlog.scrollTop = chatlog.scrollHeight;
-}
-</script>
-
 </script>
 
 </body>
-  
 </html>
-
-
-
-
-
