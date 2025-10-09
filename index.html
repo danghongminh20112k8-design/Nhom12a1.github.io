@@ -133,10 +133,26 @@ function aiReply(input) {
   if (text.includes('bị bắt nạt')) return "Điều đó không ổn 😢. Hãy báo với giáo viên hoặc người đáng tin cậy. Không ai đáng bị đối xử tệ cả!";
   return "Cảm ơn vì đã chia sẻ 💬. Mình luôn ở đây để lắng nghe bạn, cứ nói tiếp nhé.";
 }
+
+ <section id="counseling">
+  <h2>5. Tư vấn học đường</h2>
+  <p>Nếu bạn đang gặp khó khăn trong học tập, áp lực tâm lý hoặc các vấn đề cá nhân, 
+     bạn có thể gửi tin nhắn dưới đây để được tư vấn viên ảo lắng nghe và chia sẻ cùng bạn 💬</p>
+
+  <div class="chatbox">
+    <div id="chatlog">
+      <div class="msg"><strong>Tư vấn viên:</strong> Chào bạn! Mình có thể giúp gì cho bạn hôm nay?</div>
+    </div>
+    <input type="text" id="userInput" placeholder="Nhập tin nhắn của bạn...">
+    <button onclick="sendMessage()">Gửi</button>
+  </div>
+</section>
+
 </script>
 
 </body>
 </html>
+
 
 
 
