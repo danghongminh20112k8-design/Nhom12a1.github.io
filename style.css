@@ -56,9 +56,9 @@ main {
 }
 
 section {
-  background: none;
-  border: none;
-  box-shadow: none;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
   padding: 20px;
   margin-bottom: 30px;
   color: black;
@@ -122,3 +122,10 @@ footer {
   font-size: 14px;
   border: none;
 }
+.box, .content, .card, .block {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
