@@ -29,12 +29,14 @@ header {
   gap: 20px;
   padding: 10px;
 }
+
 .navbar a {
   color: white;
   text-decoration: none;
   font-weight: 500;
   transition: 0.3s;
 }
+
 .navbar a:hover {
   color: #ffeaa7;
 }
@@ -84,7 +86,7 @@ button:hover {
 }
 
 #chatlog {
-  height: 240px;
+  height: 260px;
   overflow-y: auto;
   background: white;
   border-radius: 8px;
@@ -97,22 +99,22 @@ button:hover {
 
 .msg {
   display: flex;
-  align-items: flex-end;
-  gap: 6px;
+  max-width: 75%;
 }
 
 .msg.user {
+  align-self: flex-end;
   justify-content: flex-end;
 }
 
 .msg.bot {
+  align-self: flex-start;
   justify-content: flex-start;
 }
 
 .bubble {
   padding: 10px 14px;
   border-radius: 16px;
-  max-width: 70%;
   line-height: 1.4;
   word-wrap: break-word;
 }
