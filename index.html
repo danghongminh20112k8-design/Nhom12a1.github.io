@@ -148,10 +148,36 @@ function aiReply(input) {
   </div>
 </section>
 
+<script>
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const chatlog = document.getElementById("chatlog");
+
+  if (input.value.trim() === "") return;
+
+  // Hiển thị tin nhắn của người dùng
+  const userMsg = document.createElement("div");
+  userMsg.className = "msg";
+  userMsg.innerHTML = "<strong>Bạn:</strong> " + input.value;
+  chatlog.appendChild(userMsg);
+
+  // Tự động phản hồi
+  const reply = document.createElement("div");
+  reply.className = "msg";
+  reply.innerHTML = "<strong>Tư vấn viên:</strong> Cảm ơn bạn đã chia sẻ 💙. Hãy luôn nhớ rằng bạn không đơn độc nhé!";
+  chatlog.appendChild(reply);
+
+  input.value = "";
+  chatlog.scrollTop = chatlog.scrollHeight;
+}
+</script>
+
 </script>
 
 </body>
+  
 </html>
+
 
 
 
